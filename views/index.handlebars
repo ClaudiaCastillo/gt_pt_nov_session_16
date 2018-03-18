@@ -1,0 +1,19 @@
+<h1>Note App</h1>
+
+<form action="/note" method="post">
+	<input type="text" name="title" placeholder="Title">
+	<input type="number" name="count" placeholder="Count">
+	<textarea name="details" cols="30" rows="10"></textarea>
+	<button>Submit</button>
+</form>
+
+{{#each notes}}
+	<div class="note">
+		<h3>{{ title }}</h3>
+		<p>Count: {{ count }}</p>
+		<p>{{ details }}</p>
+		<form action="/notes?_method=DELETE&id={{id}}" method="post">
+			<button>Delete</button>
+		</form>
+	</div>
+{{/each}}
